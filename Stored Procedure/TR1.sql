@@ -40,3 +40,10 @@ BEGIN
 END
 
 EXEC TR1 'Erick','Test','prueba2@gmail.com','1996-12-13','HolaMundo',236
+
+select * from practica1.Usuarios;
+select * from practica1.ProfileStudent;
+select * from practica1.TFA;
+select * from practica1.UsuarioRole;
+select * from practica1.Notification;
+
