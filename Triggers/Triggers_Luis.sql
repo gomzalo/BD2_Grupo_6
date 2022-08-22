@@ -47,3 +47,15 @@ BEGIN
 	UNION ALL
 	SELECT GETDATE(),CONCAT('Eliminado - Usuario  ',d.UserId,' asginado el codigo de tutor ',d.TutorCode) FROM deleted d
 END
+
+CREATE TRIGGER trg_ProfileStudent
+ON practica1.ProfileStudent
+AFTER INSERT, DELETE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO practica1.HistoryLog(Date, Description)
+		SELECT GETDATE(), CONCAT('Se creó el perfil del estudiante con el ID ', i.UserId, ' con código de usuario ', i.Id) FROM inserted i
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se eliminó el perfil del estudiante con el ID ', d.UserId, ' con código de usuario ', d.Id) FROM deleted d
+END
