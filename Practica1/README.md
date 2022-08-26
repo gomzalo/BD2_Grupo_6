@@ -1,6 +1,7 @@
 # Práctica 1 
 
 Resolver problemas que se tienen actualmente en las bases de datos de la Universidad de San Carlos de Guatemala.
+
 Entre ellos:
 
 - Manejo de historial
