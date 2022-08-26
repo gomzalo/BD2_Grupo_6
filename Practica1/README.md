@@ -16,6 +16,6 @@ Entre ellos:
 ## Solución
 
 - [Script](<script.sql>)
-- [Stored Procedures](<Stored Procedure/>)
+- [Stored Procedures](<Stored Procedures/>)
 - [Triggers](<Triggers/>)
 - [Functions](<Functions/>)
