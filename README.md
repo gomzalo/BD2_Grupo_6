@@ -4,8 +4,10 @@
 - Escuela de Ciencias y Sistemas
 
 ## Repositorio
-- [Stored Procedures](</Stored Procedure>)
-- [Triggers](</Triggers>)
+- [Script BD](<//Practica1//BD2_2019Enterprise.sql>)
+- [Stored Procedures](<//Practica1//Stored Procedure>)
+- [Triggers](<//Practica1//Triggers>)
+- [Functions](<//Practica1//Functions>)
 
 ## **Grupo No. 3**
 - 201318652	Gonzalo Antonio García Solares
