@@ -81,7 +81,7 @@ BEGIN TRY
 									SET @Message += '.'
 									PRINT @Message
 									INSERT INTO practica1.Notification VALUES (@IDUser, @Message, GETDATE());
-									PRINT 'Se ha cambiado el rol del usuario a tutor y se ha asignado el curso correspondiente.';
+									PRINT 'Se ha agregado el rol del usuario tutor y se ha asignado el curso correspondiente.';
 								END
 							END
 						END
