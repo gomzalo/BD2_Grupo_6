@@ -5,7 +5,7 @@
 - Laboratorio de Base de Datos 2 "N"
 - Segundo semestre de 2022
 
-## **Grupo No. 6**
+## **Integrantes**
 
 | Carnet | Nombre |
 | ------ | ----- |

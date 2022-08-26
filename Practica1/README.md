@@ -15,6 +15,6 @@ Entre ellos:
 ## Solución
 
 - [Script](<script.sql>)
-- [Stored Procedures](<BD2_GRUPO_6/blob/master/Stored Procedure/>)
-- [Triggers](<BD2_GRUPO_6/blob/master/Triggers/>)
-- [Functions](<BD2_GRUPO_6/blob/master/Functions/>)
+- [Stored Procedures](</Stored Procedure/>)
+- [Triggers](</Triggers/>)
+- [Functions](</Functions/>)
