@@ -4,7 +4,8 @@
 - Escuela de Ciencias y Sistemas
 
 ## Repositorio
-- [Stored Procedure](</Stored Procedure>)
+- [Stored Procedures](</Stored Procedure>)
+- [Triggers](</Triggers>)
 
 ## **Grupo No. 3**
 - 201318652	Gonzalo Antonio García Solares
