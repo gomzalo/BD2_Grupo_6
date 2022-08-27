@@ -60,8 +60,11 @@ BEGIN TRY
 	COMMIT TRANSACTION;
 END TRY
 BEGIN CATCH
-	-- INSERT INTO practica1.HistoryLog
-	-- VALUES (GETDATE(), CONCAT('Rollback en asignacion de curso ', @CodCourse, ' para ', @Email));
 	ROLLBACK TRANSACTION;
+	INSERT INTO practica1.HistoryLog
+	VALUES (
+		GETDATE(), 
+		CONCAT('Error en TR3, ', ERROR_MESSAGE())
+	);
 END CATCH;
 GO
