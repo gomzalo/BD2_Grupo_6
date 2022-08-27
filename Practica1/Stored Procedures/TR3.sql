@@ -12,7 +12,7 @@ BEGIN TRY
 		DECLARE @IdTutor UNIQUEIDENTIFIER
 		DECLARE @nameCourse NVARCHAR(MAX)
 
-		IF (SELECT COUNT(*) FROM practica1.Usuarios WHERE Email = 'jdaft0@google.fr' AND EmailConfirmed = 1) = 1
+		IF (SELECT COUNT(*) FROM practica1.Usuarios WHERE Email = @Email AND EmailConfirmed = 1) = 1
 		BEGIN
 			SET @IdStudent = (SELECT Id
 								FROM practica1.Usuarios u
@@ -42,22 +42,26 @@ BEGIN TRY
 				IF (SELECT COUNT(*) FROM practica1.CourseAssignment WHERE StudentId <> @IdStudent AND CourseCodCourse <> @CodCourse) = 0
 				BEGIN
 					INSERT INTO practica1.CourseAssignment VALUES (@idStudent, @CodCourse);
-					INSERT INTO practica1.Notification VALUES (@idStudent, CONCAT('Asignado a ', @nameCourse), GETDATE());
+					INSERT INTO practica1.Notification VALUES (@idStudent, CONCAT(@Email, 'Asignado a ', @nameCourse), GETDATE());
 					INSERT INTO practica1.Notification VALUES (@idTutor, CONCAT('Estudiante asignado a ', @nameCourse), GETDATE());
 				END;
 			END;
 			ELSE
 			BEGIN
-				PRINT 'El usuario no cuenta con los cr�ditos suficientes';
+				INSERT INTO practica1.HistoryLog 
+				VALUES (GETDATE(), CONCAT(@Email, ' no cuenta con los creditos suficientes para ', @CodCourse));
 			END;
 		END;
 		ELSE
 		BEGIN
-			PRINT 'El usuario no tiene un correo confirmado';
+			INSERT INTO practica1.HistoryLog 
+			VALUES(GETDATE(), CONCAT(@Email, ' no tiene un correo confirmado'));
 		END;
 	COMMIT TRANSACTION;
 END TRY
 BEGIN CATCH
+	-- INSERT INTO practica1.HistoryLog
+	-- VALUES (GETDATE(), CONCAT('Rollback en asignacion de curso ', @CodCourse, ' para ', @Email));
 	ROLLBACK TRANSACTION;
 END CATCH;
 GO
