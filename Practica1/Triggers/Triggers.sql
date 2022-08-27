@@ -59,3 +59,35 @@ BEGIN
 	UNION ALL
 		SELECT GETDATE(), CONCAT('Se eliminó el perfil del estudiante con el ID ', d.UserId, ' con código de usuario ', d.Id) FROM deleted d
 END
+
+DROP TRIGGER IF EXISTS practica1.trg_TFA;
+GO
+CREATE TRIGGER trg_TFA
+ON practica1.TFA
+AFTER INSERT, UPDATE, DELETE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO practica1.HistoryLog(Date, Description)
+		SELECT GETDATE(), CONCAT('Se activo el TFA del estudiante con el ID ', i.UserId, ' con ID: ', i.Id) FROM inserted i
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se desactivo el TFA del estudiante con el ID ', d.UserId, ' con ID: ', d.Id) FROM deleted d
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se actualizo el TFA del estudiante con el ID ', u.UserId, ' con ID: ', u.Id) FROM updated u
+END
+
+DROP TRIGGER IF EXISTS practica1.trg_Notification;
+GO
+CREATE TRIGGER trg_Notification
+ON practica1.Notification
+AFTER INSERT, UPDATE, DELETE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO practica1.HistoryLog(Date, Description)
+		SELECT GETDATE(), CONCAT('Se envio notificación al estudiante con el ID ', i.UserId, ' con ID: ', i.Id) FROM inserted i
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se eliminó la notificación al estudiante con el ID ', d.UserId, ' con ID: ', d.Id) FROM deleted d
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se actualizo la notificación del estudiante con el ID ', u.UserId, ' con ID: ', u.Id) FROM updated u
+END

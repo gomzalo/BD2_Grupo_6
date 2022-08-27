@@ -1,3 +1,4 @@
+-- Asignar curso
 CREATE PROCEDURE TR3 (
 	@Email NVARCHAR(MAX),
 	@CodCourse INT

@@ -1,7 +1,8 @@
 ------------------------------------------------------------
 ------------------------------------------------------------
 --------------------CAMBIO DE ROLES-------------------------
-
+DROP PROCEDURE IF EXISTS practica1.TR2;
+GO
 CREATE PROCEDURE TR2 (
 	@CodCourse INT,
 	@Email VARCHAR(MAX)
@@ -16,11 +17,9 @@ BEGIN TRY
 		DECLARE @CourseName VARCHAR(MAX)
 
 		IF (SELECT COUNT(*) FROM practica1.Roles
-			WHERE RoleName='Tutor') = 1
-		BEGIN
+				WHERE RoleName='Tutor') = 1
 			SET @IDRol = (SELECT Id FROM practica1.Roles
                             WHERE RoleName='Tutor');
-		END
 		ELSE
 		BEGIN
 			PRINT 'No existe el rol Tutor aun.';
@@ -39,56 +38,56 @@ BEGIN TRY
 					WHERE [Email] = @Email) = 1
 			BEGIN
 				PRINT 'Usuario activo, correo confirmado.';
-				IF (SELECT COUNT(*) FROM practica1.UsuarioRole
-						WHERE practica1.UsuarioRole.UserId = @IDUser) > 1
-					PRINT 'Parece que el usuario actual ya tiene mas de un rol.'
-				ELSE
-                BEGIN
-					IF (SELECT [CodCourse] FROM practica1.Course
-							WHERE [CodCourse] = @CodCourse) = @CodCourse
+				-- IF (SELECT COUNT(*) FROM practica1.UsuarioRole
+				-- 		WHERE practica1.UsuarioRole.UserId = @IDUser) > 1
+				-- 	PRINT 'Parece que el usuario actual ya tiene mas de un rol.'
+				-- ELSE
+                -- BEGIN
+				IF (SELECT [CodCourse] FROM practica1.Course
+						WHERE [CodCourse] = @CodCourse) = @CodCourse
+				BEGIN
+					PRINT 'Curso encontrado'
+					SET @CourseName = (SELECT [Name] FROM practica1.Course
+						WHERE [CodCourse] = @CodCourse)
+					IF (SELECT COUNT(*) FROM practica1.CourseTutor
+							WHERE practica1.CourseTutor.CourseCodCourse = @CodCourse) >= 1
+						PRINT 'El curso ingresado ya tiene un tutor asignado.'
+					ELSE
 					BEGIN
-						PRINT 'Curso encontrado'
-						SET @CourseName = (SELECT [Name] FROM practica1.Course
-							WHERE [CodCourse] = @CodCourse)
 						IF (SELECT COUNT(*) FROM practica1.CourseTutor
-								WHERE practica1.CourseTutor.CourseCodCourse = @CodCourse) >= 1
-							PRINT 'El curso ingresado ya tiene un tutor asignado.'
+								WHERE practica1.CourseTutor.TutorId = @IDUser
+								AND practica1.CourseTutor.CourseCodCourse = @CodCourse) >= 1
+							PRINT 'El tutor ya tiene a su cargo el curso ingresado.'
 						ELSE
 						BEGIN
-							IF (SELECT COUNT(*) FROM practica1.CourseTutor
-									WHERE practica1.CourseTutor.TutorId = @IDUser
-									AND practica1.CourseTutor.CourseCodCourse = @CodCourse) >= 1
-								PRINT 'El tutor ya tiene a su cargo el curso ingresado.'
+							IF (SELECT COUNT(*) FROM practica1.CourseAssignment
+									WHERE practica1.CourseAssignment.CourseCodCourse = @CodCourse) >= 1
+									PRINT 'No puede ser auxiliar de un curso que esta cursando actualmente.'
 							ELSE
 							BEGIN
-								IF (SELECT COUNT(*) FROM practica1.CourseAssignment
-										WHERE practica1.CourseAssignment.CourseCodCourse = @CodCourse) >= 1
-										PRINT 'No puede ser auxiliar de un curso que esta cursando actualmente.'
-								ELSE
-								BEGIN
-									INSERT INTO practica1.TutorProfile VALUES (@IDUser, NEWID())
-									PRINT 'TutorProfile inserted'
-									--SELECT TutorCode FROM practica1.TutorProfile
-				  --                                              WHERE UserId=@IDUser
-									SET @IDTutor = (SELECT TutorCode FROM practica1.TutorProfile
-																WHERE UserId=@IDUser);
-									INSERT INTO practica1.CourseTutor VALUES (@IDUser, @CodCourse);
-									PRINT 'CourseTutor inserted'
-									INSERT INTO practica1.UsuarioRole VALUES (@IDRol, @IDUser, 1);
-									PRINT 'UsuarioRole inserted'
-									SET @Message = 'Tu perfil de tutor ha sido activado correctamente y se te ha sido asignado el curso: '
-									SET @Message += @CourseName
-									SET @Message += '.'
-									PRINT @Message
-									INSERT INTO practica1.Notification VALUES (@IDUser, @Message, GETDATE());
-									PRINT 'Se ha agregado el rol del usuario tutor y se ha asignado el curso correspondiente.';
-								END
+								INSERT INTO practica1.TutorProfile VALUES (@IDUser, NEWID())
+								PRINT 'TutorProfile inserted'
+								--SELECT TutorCode FROM practica1.TutorProfile
+								--	WHERE UserId=@IDUser
+								SET @IDTutor = (SELECT TutorCode FROM practica1.TutorProfile
+															WHERE UserId=@IDUser);
+								INSERT INTO practica1.CourseTutor VALUES (@IDUser, @CodCourse);
+								PRINT 'CourseTutor inserted'
+								INSERT INTO practica1.UsuarioRole VALUES (@IDRol, @IDUser, 1);
+								PRINT 'UsuarioRole inserted'
+								SET @Message = 'Tu perfil de tutor ha sido activado correctamente y se te ha sido asignado el curso: '
+								SET @Message += @CourseName
+								SET @Message += '.'
+								PRINT @Message
+								INSERT INTO practica1.Notification VALUES (@IDUser, @Message, GETDATE());
+								PRINT 'Se ha agregado el rol del usuario tutor y se ha asignado el curso correspondiente.';
 							END
 						END
 					END
-					ELSE
-						PRINT 'No existe ningun curso con el código ingresado. ¿Ya se creo el curso?'
-                END
+				END
+				ELSE
+					PRINT 'No existe ningun curso con el código ingresado. ¿Ya se creo el curso?'
+                -- END
 			END
 			ELSE
 				PRINT 'El usuario no esta activo, correo no confirmado.'
