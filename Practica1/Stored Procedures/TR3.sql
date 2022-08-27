@@ -12,7 +12,7 @@ BEGIN TRY
 		DECLARE @IdTutor UNIQUEIDENTIFIER
 		DECLARE @nameCourse NVARCHAR(MAX)
 
-		IF (SELECT COUNT(*) FROM practica1.Usuarios WHERE EmailConfirmed = 1) = 0
+		IF (SELECT COUNT(*) FROM practica1.Usuarios WHERE Email = 'jdaft0@google.fr' AND EmailConfirmed = 1) = 1
 		BEGIN
 			SET @IdStudent = (SELECT Id
 								FROM practica1.Usuarios u
@@ -39,10 +39,21 @@ BEGIN TRY
 
 			IF @creditsStudent >= @creditsCourse
 			BEGIN
-				INSERT INTO practica1.CourseAssignment VALUES (@idStudent, @CodCourse);
-				INSERT INTO practica1.Notification VALUES (@idStudent, CONCAT('Asignado a ', @nameCourse), GETDATE());
-				INSERT INTO practica1.Notification VALUES (@idTutor, CONCAT('Estudiante asignado a ', @nameCourse), GETDATE());
-			END
+				IF (SELECT COUNT(*) FROM practica1.CourseAssignment WHERE StudentId <> @IdStudent AND CourseCodCourse <> @CodCourse) = 0
+				BEGIN
+					INSERT INTO practica1.CourseAssignment VALUES (@idStudent, @CodCourse);
+					INSERT INTO practica1.Notification VALUES (@idStudent, CONCAT('Asignado a ', @nameCourse), GETDATE());
+					INSERT INTO practica1.Notification VALUES (@idTutor, CONCAT('Estudiante asignado a ', @nameCourse), GETDATE());
+				END;
+			END;
+			ELSE
+			BEGIN
+				PRINT 'El usuario no cuenta con los cr�ditos suficientes';
+			END;
+		END;
+		ELSE
+		BEGIN
+			PRINT 'El usuario no tiene un correo confirmado';
 		END;
 	COMMIT TRANSACTION;
 END TRY
