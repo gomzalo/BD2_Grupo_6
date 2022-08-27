@@ -1,3 +1,7 @@
+USE BD2
+GO
+
+-- ASIGNACION DE CURSOS
 CREATE PROCEDURE TR3 (
 	@Email NVARCHAR(MAX),
 	@CodCourse INT
@@ -41,7 +45,15 @@ BEGIN TRY
 				INSERT INTO practica1.CourseAssignment VALUES (@idStudent, @CodCourse);
 				INSERT INTO practica1.Notification VALUES (@idStudent, CONCAT('Asignado a ', @nameCourse), GETDATE());
 				INSERT INTO practica1.Notification VALUES (@idTutor, CONCAT('Estudiante asignado a ', @nameCourse), GETDATE());
-			END
+			END;
+			ELSE
+			BEGIN
+				PRINT 'El usuario no cuenta con los créditos suficientes';
+			END;
+		END;
+		ELSE
+		BEGIN
+			PRINT 'El usuario no tiene un correo confirmado';
 		END;
 	COMMIT TRANSACTION;
 END TRY
