@@ -2,8 +2,9 @@ USE BD2
 GO
 
 -- DESCRIPTION : Creacion de usuarios
-
-CREATE PROCEDURE TR1 
+DROP PROCEDURE IF EXISTS TR1;
+GO
+CREATE  PROCEDURE TR1 
 	@Firstname NVARCHAR(MAX), 
 	@Lastname NVARCHAR(MAX),
 	@Email NVARCHAR(MAX), 
@@ -34,6 +35,8 @@ BEGIN
 	END TRY
 	BEGIN CATCH
 		ROLLBACK TRANSACTION
+		INSERT INTO practica1.HistoryLog(Date,Description)
+		VALUES (GETDATE(),CONCAT('Error en TR1, tabla ProfileStudent, TFA, UsuarioRole,Notification  ',ERROR_MESSAGE()));
 		PRINT 'ERROR ON DATA, ROLLBACK CHANGES'
 	END CATCH
 
@@ -47,3 +50,5 @@ select * from practica1.TFA;
 select * from practica1.UsuarioRole;
 select * from practica1.Notification;
 
+
+--SELECT * FROM practica1.HistoryLog

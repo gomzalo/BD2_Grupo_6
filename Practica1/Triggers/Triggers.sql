@@ -91,3 +91,54 @@ BEGIN
 	UNION ALL
 		SELECT GETDATE(), CONCAT('Se actualizo la notificación del estudiante con el ID ', u.UserId, ' con ID: ', u.Id) FROM updated u
 END
+
+------ Usuarios ------
+DROP TRIGGER IF EXISTS practica1.trg_Usuarios;
+GO
+CREATE TRIGGER trg_Usuarios
+ON practica1.Usuarios
+AFTER INSERT, UPDATE, DELETE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO practica1.HistoryLog(Date, Description)
+		SELECT GETDATE(), CONCAT('Se ingreso un usuario con el id ', i.Email, ' con ID: ', i.Id) FROM inserted i
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se eliminó un usuario con el id ', d.Email, ' con ID: ', d.Id) FROM deleted d
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se actualizo un usuario con el id ', u.Email, ' con ID: ', u.Id) FROM updated u
+END
+
+------ UsuarioRole ------
+DROP TRIGGER IF EXISTS practica1.trg_UsuarioRole;
+GO
+CREATE TRIGGER trg_UsuarioRole
+ON practica1.UsuarioRole
+AFTER INSERT, UPDATE, DELETE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO practica1.HistoryLog(Date, Description)
+		SELECT GETDATE(), CONCAT('Se ingreso un usuario con Rol con el id ', i.UserId, ' con ID: ', i.Id, ' con RoleId: ', i.RoleId) FROM inserted i
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se eliminó un usuario con Rol con el id ', d.UserId, ' con ID: ', d.Id, ' con RoleId: ', d.RoleId) FROM deleted d
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se actualizo un usuario con Rol con el id ', u.UserId, ' con ID: ', u.Id, ' con RoleId: ', u.RoleId) FROM updated u
+END
+
+------ Roles ------
+DROP TRIGGER IF EXISTS practica1.trg_Roles;
+GO
+CREATE TRIGGER trg_Roles
+ON practica1.Roles
+AFTER INSERT, UPDATE, DELETE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO practica1.HistoryLog(Date, Description)
+		SELECT GETDATE(), CONCAT('Se ingreso un usuario con Rol con el Nombre ', i.RoleName, ' con ID: ', i.Id ) FROM inserted i
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se eliminó un usuario con Rol con el Nombre ', d.RoleName, ' con ID: ', d.Id ) FROM deleted d
+	UNION ALL
+		SELECT GETDATE(), CONCAT('Se actualizo un usuario con Rol con el Nombre ', u.RoleName, ' con ID: ', u.Id ) FROM updated u
+END

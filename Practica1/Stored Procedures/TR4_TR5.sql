@@ -18,8 +18,8 @@ BEGIN TRY
 	COMMIT TRANSACTION;
 END TRY
 BEGIN CATCH
-	INSERT INTO practica1.HistoryLog([Date],[Description])
-	SELECT GETDATE(),CONCAT('Error en TR4, tabla ROLES ',ERROR_MESSAGE()) AS ErrorMessage;
+	INSERT INTO practica1.HistoryLog(Date,Description)
+	VALUES ( GETDATE(),CONCAT('Error en TR4, tabla ROLES ',ERROR_MESSAGE()));
 	ROLLBACK TRANSACTION;
 END CATCH
 GO
@@ -48,7 +48,7 @@ BEGIN TRY
 END TRY
 BEGIN CATCH
 	INSERT INTO practica1.HistoryLog([Date],[Description])
-	SELECT GETDATE(),CONCAT('Error en TR5, tabla COURSE ',ERROR_MESSAGE()) AS ErrorMessage;
+	VALUES ( GETDATE(),CONCAT('Error en TR5, tabla COURSE ',ERROR_MESSAGE()) );
 	ROLLBACK TRANSACTION;
 END CATCH
 GO
