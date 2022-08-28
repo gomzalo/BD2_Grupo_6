@@ -1,4 +1,4 @@
-------------------------------------------------------------
+>------------------------------------------------------------
 ------------------------------------------------------------
 --------------------CAMBIO DE ROLES-------------------------
 DROP PROCEDURE IF EXISTS practica1.TR2;
@@ -23,6 +23,8 @@ BEGIN TRY
 		ELSE
 		BEGIN
 			PRINT 'No existe el rol Tutor aun.';
+			INSERT INTO practica1.HistoryLog 
+			VALUES (GETDATE(), CONCAT('No existe el rol Tutor aun.', ERROR_MESSAGE()));
 			RETURN
 		END
 
@@ -70,7 +72,7 @@ BEGIN TRY
 								--SELECT TutorCode FROM practica1.TutorProfile
 								--	WHERE UserId=@IDUser
 								SET @IDTutor = (SELECT TutorCode FROM practica1.TutorProfile
-															WHERE UserId=@IDUser);
+													WHERE UserId=@IDUser);
 								INSERT INTO practica1.CourseTutor VALUES (@IDUser, @CodCourse);
 								PRINT 'CourseTutor inserted'
 								INSERT INTO practica1.UsuarioRole VALUES (@IDRol, @IDUser, 1);
@@ -86,22 +88,35 @@ BEGIN TRY
 					END
 				END
 				ELSE
+				BEGIN
 					PRINT 'No existe ningun curso con el código ingresado. ¿Ya se creo el curso?'
-                -- END
+					INSERT INTO practica1.HistoryLog 
+					VALUES (GETDATE(), CONCAT('No existe ningun curso con el código: ', @CodCourse, '. ¿Ya se creo el curso?'));
+                END
 			END
 			ELSE
+			BEGIN
 				PRINT 'El usuario no esta activo, correo no confirmado.'
+				INSERT INTO practica1.HistoryLog 
+				VALUES (GETDATE(), CONCAT('El usuario con ID: "', @IDUser,'" no esta activo, correo no confirmado.'));
+			END
 		END
 		ELSE
+		BEGIN
 			PRINT 'No existe ningun usuario asociado al email ingresado. ¿Ya se registro el usuario?'
+			INSERT INTO practica1.HistoryLog 
+			VALUES (GETDATE(), CONCAT('No existe ningun usuario asociado al email"', @Email, '". ¿Ya se registro el usuario?'));
+		END
 	COMMIT TRANSACTION
 		PRINT 'Roles cambiados? :v';
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION;
 	PRINT 'No se pudieron cambiar los roles :,v';
+	INSERT INTO practica1.HistoryLog 
+	VALUES (GETDATE(), CONCAT('Error en TR2, no se pudieron cambiar los roles :,v ', ERROR_MESSAGE()));
 END CATCH;
--- Test
+-- ===================================== Test =====================================
 GO
 EXEC TR2 772,'espinoza@gmail.com';
 --INSERT INTO practica1.CourseTutor VALUES ('1DA6A4B0-656C-470F-A0C8-E3A7662241B3', 970)
@@ -109,10 +124,12 @@ GO
 SELECT * FROM practica1.TutorProfile;
 SELECT * FROM practica1.CourseTutor;
 SELECT * FROM practica1.Notification;
+SELECT * FROM practica1.HistoryLog;
 -- Delete SP
-DROP PROCEDURE TR2;
+DROP PROCEDURE practica1.TR2;
 GO
 -- Activating account
 UPDATE practica1.Usuarios
 SET EmailConfirmed = 1
 WHERE Email = 'espinoza@gmail.com';
+------------------------------------------------------------
