@@ -55,16 +55,19 @@ FIELDS TERMINATED BY ','
 IGNORE 1 ROWS;
 
 -- FULL BACKPU
+-- BACKUP
 -- mysqldump -u root -p DB_CMEDICO > fullbackup_dia1.sql
--- mysql -u root -p DB_CMEDICO < fullbackup_dia1.sql
+-- RESTORE
+-- mysqldump -u root -p DB_CMEDICO < fullbackup_dia1.sql
 
 -- INCREMENTAL BACKUP
 -- EN MySQL Command Line:
 -- GENERAR BINARY LOGS
 -- flush logs;
--- show
+-- show binary logs;
 -- EN Consola normal
--- mysqlbinlog -v "C:\ProgramData\MySQL\MySQL Server 8.0\Data\DESKTOP-5JRB2P8-bin.000136"
+-- mysqlbinlog -v "C:\ProgramData\MySQL\MySQL Server 8.0\Data\G10-bin.000039" > "C:\Program Files\MySQL\MySQL Server 8.0\bin\incrementalbackup_dia1_1.sql"
+-- mysql -u root -p DB_CMEDICO < incrementalbackup_dia1.sql
 
 -- LIMIT
 SELECT * FROM PACIENTE LIMIT 20;
