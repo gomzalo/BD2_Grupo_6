@@ -45,14 +45,14 @@ En el archivo "*C:\ProgramData\MySQL\MySQL Server 8.0\my.ini*".
 
 Cambiar valor de variable **secure-file-priv** a cadena vacia.
 
-Valor original: secure-file-priv="C:/ProgramData/MySQL/MySQL Server 8.0/Uploads"
+* **Valor original**: secure-file-priv="C:/ProgramData/MySQL/MySQL Server 8.0/Uploads"
 
-Nuevo valor: secure-file-priv=""
+* **Nuevo valor**: secure-file-priv=""
 
 ## Problema de límite de tamaño en restaurar backup
 
 Cambiar valor de variable **max_allowed_packet** al tamaño deseado.
 
-Valor original: max_allowed_packet=4M
+* **Valor original**: max_allowed_packet=4M
 
-Nuevo valor: max_allowed_packet=64M
+* **Nuevo valor**: max_allowed_packet=64M
