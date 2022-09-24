@@ -1,18 +1,16 @@
 SHOW DATABASES;
-
--- --------------------------------------------------
--- PRIMER DIA
--- --------------------------------------------------
--- CREAR DB
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- :::::::::::::::          CREAR BD            :::::::::::::::
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 DROP DATABASE DB_CMEDICO;
 CREATE DATABASE DB_CMEDICO
 CHARACTER SET utf8
 COLLATE utf8_general_ci;
 
 USE DB_CMEDICO;
-
--- CREAR TABLAS
-
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- :::::::::::::::          CREAR TABLAS        :::::::::::::::
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 CREATE TABLE PACIENTE (
 	idPaciente INT,
     edad INT,
@@ -45,8 +43,10 @@ CREATE TABLE LOG_ACTIVIDAD (
     CONSTRAINT fk_pacienteactividad FOREIGN KEY (idPaciente) REFERENCES PACIENTE(idPaciente),
     CONSTRAINT fk_habitacionactividad FOREIGN KEY (idHabitacion) REFERENCES HABITACION(idHabitacion)
 );
-
--- CARGA DE DATOS
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- :::::::::::::::     CARGA DE DATOS            :::::::::::::::
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- ..........   CARGAR DATOS DÍA 1 y 2  ..........
 LOAD DATA
 INFILE 'C:\\CSVInputFiles\\Habitaciones.csv'
 INTO TABLE HABITACION
@@ -54,7 +54,7 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ','
 IGNORE 1 ROWS;
 
--- CARGA DE DATOS DIA 3
+-- ..........   CARGAR DATOS DÍA 3  ..........
 LOAD DATA
 INFILE 'C:\\CSVInputFiles\\Logactividades1.csv'
 INTO TABLE LOG_ACTIVIDAD
@@ -65,34 +65,45 @@ IGNORE 1 ROWS
 
 -- FULL BACKPU
 -- BACKUP
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- :::::::::::::::      FULL BACKUP             :::::::::::::::
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- Realizar en CMD de Windows.
+-- ..........   BACKUP  ..........
 -- mysqldump -u root -p DB_CMEDICO > fullbackup_dia1.sql
--- RESTORE
+-- ..........   RESTORE ..........
 -- mysqldump -u root -p DB_CMEDICO < fullbackup_dia1.sql
 
--- INCREMENTAL BACKUP
--- EN MySQL Command Line:
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- :::::::::::::::      INCREMENTAL BACKUP      :::::::::::::::
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- Realizar en MySQL Command Line:
 -- GENERAR BINARY LOGS
 -- show binary logs;
 -- flush logs;
--- En Consola normal
--- BACKUP
+-- Realizar en CMD de Windows.
+-- ..........   BACKUP  ..........
 -- mysqlbinlog -v "C:\ProgramData\MySQL\MySQL Server 8.0\Data\G10-bin.000039" > "C:\Program Files\MySQL\MySQL Server 8.0\bin\incrementalbackup_dia1_1.sql"
--- RESTORE
+-- ..........   RESTORE ..........
 -- mysql -u root -p DB_CMEDICO < incrementalbackup_dia1.sql
 
--- LIMIT
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+--      :::::::::::::::      SELECTS      :::::::::::::::
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+-- ..........   LIMIT   ..........
 SELECT * FROM PACIENTE LIMIT 20;
 SELECT * FROM HABITACION LIMIT 20;
 SELECT * FROM LOG_HABITACION LIMIT 20;
 SELECT * FROM LOG_ACTIVIDAD LIMIT 20;
 
--- ORDER BY
+-- ..........   ORDER BY   ..........
 SELECT * FROM PACIENTE ORDER BY 1 DESC LIMIT 20;
 SELECT * FROM HABITACION ORDER BY 1 DESC LIMIT 20;
 SELECT * FROM LOG_HABITACION ORDER BY 1 DESC LIMIT 20;
 SELECT * FROM LOG_ACTIVIDAD ORDER BY 1 DESC LIMIT 20;
 
--- COUNT
+-- ..........   COUNT   ..........
 SELECT COUNT(*) FROM PACIENTE;
 SELECT COUNT(*) FROM HABITACION;
 SELECT COUNT(*) FROM LOG_HABITACION;
