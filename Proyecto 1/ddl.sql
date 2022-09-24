@@ -54,6 +54,15 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ','
 IGNORE 1 ROWS;
 
+-- CARGA DE DATOS DIA 3
+LOAD DATA
+INFILE 'C:\\CSVInputFiles\\Logactividades1.csv'
+INTO TABLE LOG_ACTIVIDAD
+CHARACTER SET UTF8
+FIELDS TERMINATED BY ','
+IGNORE 1 ROWS
+(timestampx,actividad,idHabitacion,idPaciente);
+
 -- FULL BACKPU
 -- BACKUP
 -- mysqldump -u root -p DB_CMEDICO > fullbackup_dia1.sql
@@ -63,10 +72,12 @@ IGNORE 1 ROWS;
 -- INCREMENTAL BACKUP
 -- EN MySQL Command Line:
 -- GENERAR BINARY LOGS
--- flush logs;
 -- show binary logs;
--- EN Consola normal
+-- flush logs;
+-- En Consola normal
+-- BACKUP
 -- mysqlbinlog -v "C:\ProgramData\MySQL\MySQL Server 8.0\Data\G10-bin.000039" > "C:\Program Files\MySQL\MySQL Server 8.0\bin\incrementalbackup_dia1_1.sql"
+-- RESTORE
 -- mysql -u root -p DB_CMEDICO < incrementalbackup_dia1.sql
 
 -- LIMIT
