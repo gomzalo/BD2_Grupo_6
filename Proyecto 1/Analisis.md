@@ -142,15 +142,15 @@
 
 - Habitación
 
-    ![Habitacion](Backups/Full/Dia_2/COUNTS/Count_Habitacion.png)
+    ![Habitacion](Backups/Full/Dia_2/COUNTS/Count_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Full/Dia_2/COUNTS/Count_LogActividad.png)
+    ![LogActividades1](Backups/Full/Dia_2/COUNTS/Count_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Full/Dia_2/COUNTS/Count_LogHabitacion.png)
+    ![LogHabitacion](Backups/Full/Dia_2/COUNTS/Count_LogHabitacion.PNG)
 
 #### **LIMITS**
 
@@ -174,19 +174,19 @@
 
 - Paciente
 
-    ![Paciente](Backups/Full/Dia_2/ORDERS/Order_Paciente.png)
+    ![Paciente](Backups/Full/Dia_2/ORDERS/Order_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Full/Dia_2/ORDERS/Order_Habitacion.png)
+    ![Habitacion](Backups/Full/Dia_2/ORDERS/Order_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Full/Dia_2/ORDERS/Order_LogActividad.png)
+    ![LogActividades1](Backups/Full/Dia_2/ORDERS/Order_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Full/Dia_2/ORDERS/Order_LogHabitacion.png)
+    ![LogHabitacion](Backups/Full/Dia_2/ORDERS/Order_LogHabitacion.PNG)
 <!-- ______________________________________________________________ -->
 ### **Día 3**
 
@@ -208,15 +208,15 @@
 
 - Habitación
 
-    ![Habitacion](Backups/Full/Dia_3/COUNTS/Count_Habitacion.png)
+    ![Habitacion](Backups/Full/Dia_3/COUNTS/Count_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Full/Dia_3/COUNTS/Count_LogActividad.png)
+    ![LogActividades1](Backups/Full/Dia_3/COUNTS/Count_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Full/Dia_3/COUNTS/Count_LogHabitacion.png)
+    ![LogHabitacion](Backups/Full/Dia_3/COUNTS/Count_LogHabitacion.PNG)
 
 #### **LIMITS**
 
@@ -240,19 +240,19 @@
 
 - Paciente
 
-    ![Paciente](Backups/Full/Dia_3/ORDERS/Order_Paciente.png)
+    ![Paciente](Backups/Full/Dia_3/ORDERS/Order_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Full/Dia_3/ORDERS/Order_Habitacion.png)
+    ![Habitacion](Backups/Full/Dia_3/ORDERS/Order_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Full/Dia_3/ORDERS/Order_LogActividad.png)
+    ![LogActividades1](Backups/Full/Dia_3/ORDERS/Order_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Full/Dia_3/ORDERS/Order_LogHabitacion.png)
+    ![LogHabitacion](Backups/Full/Dia_3/ORDERS/Order_LogHabitacion.PNG)
 <!-- ______________________________________________________________ -->
 ### **Día 4**
 
@@ -274,15 +274,15 @@
 
 - Habitación
 
-    ![Habitacion](Backups/Full/Dia_4/COUNTS/Count_Habitacion.png)
+    ![Habitacion](Backups/Full/Dia_4/COUNTS/Count_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Full/Dia_4/COUNTS/Count_LogActividad.png)
+    ![LogActividades1](Backups/Full/Dia_4/COUNTS/Count_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Full/Dia_4/COUNTS/Count_LogHabitacion.png)
+    ![LogHabitacion](Backups/Full/Dia_4/COUNTS/Count_LogHabitacion.PNG)
 
 #### **LIMITS**
 
@@ -306,19 +306,19 @@
 
 - Paciente
 
-    ![Paciente](Backups/Full/Dia_4/ORDERS/Order_Paciente.png)
+    ![Paciente](Backups/Full/Dia_4/ORDERS/Order_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Full/Dia_4/ORDERS/Order_Habitacion.png)
+    ![Habitacion](Backups/Full/Dia_4/ORDERS/Order_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Full/Dia_4/ORDERS/Order_LogActividad.png)
+    ![LogActividades1](Backups/Full/Dia_4/ORDERS/Order_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Full/Dia_4/ORDERS/Order_LogHabitacion.png)
+    ![LogHabitacion](Backups/Full/Dia_4/ORDERS/Order_LogHabitacion.PNG)
 <!-- ______________________________________________________________ -->
 ### **Día 5**
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
@@ -405,55 +405,55 @@
 #### **COUNTS**
 - Paciente
 
-    ![Paciente](Backups/Incremental/Dia_2/COUNTS/Count_Paciente.png)
+    ![Paciente](Backups/Incremental/Dia_2/COUNTS/Count_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Incremental/Dia_2/COUNTS/Count_Habitacion.png)
+    ![Habitacion](Backups/Incremental/Dia_2/COUNTS/Count_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Incremental/Dia_2/COUNTS/Count_LogActividad.png)
+    ![LogActividades1](Backups/Incremental/Dia_2/COUNTS/Count_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Incremental/Dia_2/COUNTS/Count_LogHabitacion.png)
+    ![LogHabitacion](Backups/Incremental/Dia_2/COUNTS/Count_LogHabitacion.PNG)
 
 #### **LIMITS**
 
 - Paciente
 
-    ![Paciente](Backups/Incremental/Dia_2/LIMITS/Limit_Paciente.png)
+    ![Paciente](Backups/Incremental/Dia_2/LIMITS/Limit_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Incremental/Dia_2/LIMITS/Limit_Habitacion.png)
+    ![Habitacion](Backups/Incremental/Dia_2/LIMITS/Limit_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Incremental/Dia_2/LIMITS/Limit_LogActividad.png)
+    ![LogActividades1](Backups/Incremental/Dia_2/LIMITS/Limit_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Incremental/Dia_2/LIMITS/Limit_LogHabitación.png)
+    ![LogHabitacion](Backups/Incremental/Dia_2/LIMITS/Limit_LogHabitación.PNG)
 
 #### **ORDERS**
 
 - Paciente
 
-    ![Paciente](Backups/Incremental/Dia_2/ORDERS/Order_Paciente.png)
+    ![Paciente](Backups/Incremental/Dia_2/ORDERS/Order_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Incremental/Dia_2/ORDERS/Order_Habitacion.png)
+    ![Habitacion](Backups/Incremental/Dia_2/ORDERS/Order_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividad](Backups/Incremental/Dia_2/ORDERS/Order_LogActividad.png)
+    ![LogActividad](Backups/Incremental/Dia_2/ORDERS/Order_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Incremental/Dia_2/ORDERS/Order_LogHabitacion.png)
+    ![LogHabitacion](Backups/Incremental/Dia_2/ORDERS/Order_LogHabitacion.PNG)
 <!-- ______________________________________________________________ -->
 ### **Día 3**
 
@@ -470,55 +470,55 @@
 #### **COUNTS**
 - Paciente
 
-    ![Paciente](Backups/Incremental/Dia_3/COUNTS/Count_Paciente.png)
+    ![Paciente](Backups/Incremental/Dia_3/COUNTS/Count_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Incremental/Dia_3/COUNTS/Count_Habitacion.png)
+    ![Habitacion](Backups/Incremental/Dia_3/COUNTS/Count_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Incremental/Dia_3/COUNTS/Count_LogActividad.png)
+    ![LogActividades1](Backups/Incremental/Dia_3/COUNTS/Count_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Incremental/Dia_3/COUNTS/Count_LogHabitacion.png)
+    ![LogHabitacion](Backups/Incremental/Dia_3/COUNTS/Count_LogHabitacion.PNG)
 
 #### **LIMITS**
 
 - Paciente
 
-    ![Paciente](Backups/Incremental/Dia_3/LIMITS/Limit_Paciente.png)
+    ![Paciente](Backups/Incremental/Dia_3/LIMITS/Limit_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Incremental/Dia_3/LIMITS/Limit_Habitacion.png)
+    ![Habitacion](Backups/Incremental/Dia_3/LIMITS/Limit_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividades1](Backups/Incremental/Dia_3/LIMITS/Limit_LogActividad.png)
+    ![LogActividades1](Backups/Incremental/Dia_3/LIMITS/Limit_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Incremental/Dia_3/LIMITS/Limit_LogHabitación.png)
+    ![LogHabitacion](Backups/Incremental/Dia_3/LIMITS/Limit_LogHabitación.PNG)
 
 #### **ORDERS**
 
 - Paciente
 
-    ![Paciente](Backups/Incremental/Dia_3/ORDERS/Order_Paciente.png)
+    ![Paciente](Backups/Incremental/Dia_3/ORDERS/Order_Paciente.PNG)
 
 - Habitación
 
-    ![Habitacion](Backups/Incremental/Dia_3/ORDERS/Order_Habitacion.png)
+    ![Habitacion](Backups/Incremental/Dia_3/ORDERS/Order_Habitacion.PNG)
 
 - Log Actividad
 
-    ![LogActividad](Backups/Incremental/Dia_3/ORDERS/Order_LogActividad.png)
+    ![LogActividad](Backups/Incremental/Dia_3/ORDERS/Order_LogActividad.PNG)
 
 - Log Habitación
 
-    ![LogHabitacion](Backups/Incremental/Dia_3/ORDERS/Order_LogHabitacion.png)
+    ![LogHabitacion](Backups/Incremental/Dia_3/ORDERS/Order_LogHabitacion.PNG)
 <!-- ______________________________________________________________ -->
 ### **Día 4**
 <!-- ______________________________________________________________ -->
