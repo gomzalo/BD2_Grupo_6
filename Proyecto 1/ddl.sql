@@ -46,7 +46,7 @@ CREATE TABLE LOG_ACTIVIDAD (
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- :::::::::::::::     CARGA DE DATOS            :::::::::::::::
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
--- ..........   CARGAR DATOS DÍA 1 y 2  ..........
+-- ..........   DÍA 1  ..........
 LOAD DATA
 INFILE 'C:\\CSVInputFiles\\Habitaciones.csv'
 INTO TABLE HABITACION
@@ -54,38 +54,63 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ','
 IGNORE 1 ROWS;
 
--- ..........   CARGAR DATOS DÍA 3  ..........
+-- ..........   DÍA 2  ..........
+LOAD DATA
+INFILE 'C:\\CSVInputFiles\\Pacientes.csv'
+INTO TABLE PACIENTES
+CHARACTER SET UTF8
+FIELDS TERMINATED BY ','
+IGNORE 1 ROWS;
+
+-- ..........   DÍA 3  ..........
 LOAD DATA
 INFILE 'C:\\CSVInputFiles\\Logactividades1.csv'
+IGNORE
+INTO TABLE LOG_ACTIVIDAD
+CHARACTER SET UTF8
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(timestampx,actividad,idHabitacion,idPaciente);
+
+-- ..........   DÍA 4  ..........
+LOAD DATA
+INFILE 'C:\\CSVInputFiles\\Logactividades2.csv'
 INTO TABLE LOG_ACTIVIDAD
 CHARACTER SET UTF8
 FIELDS TERMINATED BY ','
 IGNORE 1 ROWS
-(timestampx,actividad,idHabitacion,idPaciente);
+(timestamp,actividad,idHabitacion,idPaciente);
 
--- FULL BACKPU
--- BACKUP
+-- ..........   DÍA 5  ..........
+LOAD DATA
+INFILE 'C:\\CSVInputFiles\\LogHabitaciones.csv'
+INTO TABLE LOG_HABITACION
+CHARACTER SET UTF8
+FIELDS TERMINATED BY ','
+IGNORE 1 ROWS
+(idHabitacion,timestampx,statusx,Habitacion);
+
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- :::::::::::::::      FULL BACKUP             :::::::::::::::
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- Realizar en CMD de Windows.
 -- ..........   BACKUP  ..........
--- mysqldump -u root -p DB_CMEDICO > fullbackup_dia1.sql
+	-- mysqldump -u root -p DB_CMEDICO > fullbackup_dia1.sql
 -- ..........   RESTORE ..........
--- mysqldump -u root -p DB_CMEDICO < fullbackup_dia1.sql
-
+	-- mysql -u root -p DB_CMEDICO < fullbackup_dia1.sql
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- :::::::::::::::      INCREMENTAL BACKUP      :::::::::::::::
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- Realizar en MySQL Command Line:
 -- GENERAR BINARY LOGS
--- show binary logs;
--- flush logs;
+	-- show binary logs;
+	-- flush logs;
 -- Realizar en CMD de Windows.
 -- ..........   BACKUP  ..........
--- mysqlbinlog -v "C:\ProgramData\MySQL\MySQL Server 8.0\Data\G10-bin.000039" > "C:\Program Files\MySQL\MySQL Server 8.0\bin\incrementalbackup_dia1_1.sql"
+	-- mysqlbinlog -v "C:\ProgramData\MySQL\MySQL Server 8.0\Data\G10-bin.000039" > "C:\Program Files\MySQL\MySQL Server 8.0\bin\incrementalbackup_dia1_1.sql"
 -- ..........   RESTORE ..........
--- mysql -u root -p DB_CMEDICO < incrementalbackup_dia1.sql
+	-- mysql -u root -p DB_CMEDICO < incrementalbackup_dia1.sql
 
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 --      :::::::::::::::      SELECTS      :::::::::::::::
