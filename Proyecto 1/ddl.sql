@@ -76,37 +76,46 @@ IGNORE 1 ROWS
 -- ..........   DÍA 4  ..........
 LOAD DATA
 INFILE 'C:\\CSVInputFiles\\Logactividades2.csv'
+IGNORE
 INTO TABLE LOG_ACTIVIDAD
 CHARACTER SET UTF8
 FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS
 (timestamp,actividad,idHabitacion,idPaciente);
 
 -- ..........   DÍA 5  ..........
 LOAD DATA
 INFILE 'C:\\CSVInputFiles\\LogHabitaciones.csv'
+IGNORE
 INTO TABLE LOG_HABITACION
 CHARACTER SET UTF8
 FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS
 (idHabitacion,timestampx,statusx,Habitacion);
 
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- :::::::::::::::      FULL BACKUP             :::::::::::::::
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
--- Realizar en CMD de Windows.
+-- |||||||  Realizar en CMD de Windows  |||||||
+
 -- ..........   BACKUP  ..........
 	-- mysqldump -u root -p DB_CMEDICO > fullbackup_dia1.sql
 -- ..........   RESTORE ..........
 	-- mysql -u root -p DB_CMEDICO < fullbackup_dia1.sql
+
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- :::::::::::::::      INCREMENTAL BACKUP      :::::::::::::::
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
--- Realizar en MySQL Command Line:
+-- |||||||  Realizar en MySQL Command Line |||||||
+
 -- GENERAR BINARY LOGS
 	-- show binary logs;
 	-- flush logs;
--- Realizar en CMD de Windows.
+
+-- |||||||  Realizar en CMD de Windows  |||||||
+
 -- ..........   BACKUP  ..........
 	-- mysqlbinlog -v "C:\ProgramData\MySQL\MySQL Server 8.0\Data\G10-bin.000039" > "C:\Program Files\MySQL\MySQL Server 8.0\bin\incrementalbackup_dia1_1.sql"
 -- ..........   RESTORE ..........

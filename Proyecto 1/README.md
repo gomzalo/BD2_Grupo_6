@@ -4,7 +4,13 @@ Realizar carga masiva y aplicar dos tipos de backups cada dia.
 
 ## Carga masiva
 
-### Archivos de carga de grupos par
+### Backups a realizar
+
+- Full Backup
+- Incremental Backup
+
+### Orden de carga y distribución de backups
+#### Archivos de carga de grupos par
 
 Seguir el orden de carga de los archivos, según el día.
 
@@ -16,10 +22,6 @@ Seguir el orden de carga de los archivos, según el día.
 | 4   | LogActividades2 | Luis      | Erick     |
 | 5   | LogHabitacion   | Marco     | Gonzalo   |
 
-## Backups a realizar
-
-- Full Backup
-- Incremental Backup
 
 ## **Solución**
 
