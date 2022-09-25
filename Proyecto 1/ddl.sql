@@ -93,7 +93,7 @@ CHARACTER SET UTF8
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS
-(idHabitacion,timestampx,statusx,Habitacion);
+(idHabitacion, timestampx,statusx,@ignore);
 
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- :::::::::::::::      FULL BACKUP             :::::::::::::::
@@ -101,9 +101,9 @@ IGNORE 1 ROWS
 -- |||||||  Realizar en CMD de Windows  |||||||
 
 -- ..........   BACKUP  ..........
-	-- mysqldump -u root -p DB_CMEDICO > fullbackup_dia1.sql
+	-- mysqldump -u root -p DB_CMEDICO > fullbackup_dia5.sql
 -- ..........   RESTORE ..........
-	-- mysql -u root -p DB_CMEDICO < fullbackup_dia1.sql
+	-- mysql -u root -p DB_CMEDICO < fullbackup_dia4.sql
 
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- :::::::::::::::      INCREMENTAL BACKUP      :::::::::::::::
