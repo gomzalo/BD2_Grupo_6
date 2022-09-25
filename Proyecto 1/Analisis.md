@@ -671,7 +671,7 @@
 
 - [LogHabitacion.csv](Archivos%20de%20carga/CSVInputFiles/LogHabitacion.csv)
 
-    ![TiempoCarga](Backups/Incremental/Dia_5/tiempo_carga.PNG)
+    ![TiempoCarga](Backups/Full/Dia_5/tiempo_carga.PNG)
 
 #### **Backup**
 
@@ -732,7 +732,12 @@
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 # :::::::::::::::::::   Análisis de resultados  :::::::::::::::::::
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+Segun los resultados obtenidos y comparandolos entre las cargas de los diferentes dias, se observa que el tiempo es menor utilizando el metodo fullbackup, esto se puede ver claramente en el dia 5 ya que podemos observar un incremento de espera en la carga incremental, con esto podemos ver una mejora al momento de utilizar el primer metodo. El restore no toma mas de 2 segundos.
 
+El metodo incremental realiza la copia, de los datos faltantes mientras el fullbackup realiza la copia de toda la informarcion de la base de Datos, estas dos opciones presentan diversas opciones
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 # :::::::::::::::::::   Conclusiones    :::::::::::::::::::
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+Se puede observar una mejora en el tiempo de carga de informacion en el metodo fullbackup, pero todo dependera del metodo o carga de informacion que se necesita, ya que el metodo incremental se guia en base a los logs, para realizar la carga de informacion necesaria.
+
+Se recomienda observar si necesita una restauracion completa, o una restauracion parcial, ya que dependendiendo del caso se podria utilizar fullbackup o incremental respectivamente.
