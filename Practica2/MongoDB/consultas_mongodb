@@ -1,0 +1,52 @@
+db.LogActividades.aggregate(
+	[
+		{
+		    $lookup: {
+		    	from: "Pacientes",
+		    	localField: "idPaciente",
+		    	foreignField: "idPaciente",
+		    	as: "Paciente"
+		    }
+		},
+		{
+			$unwind: "$Paciente"
+		}
+	]
+)
+
+db.LogActividades.aggregate(
+	[
+		{
+		    $lookup: {
+		    	from: "Pacientes",
+		    	let: { edad: "$Edad", paciente: "$idPaciente" },
+		    	pipeline: [
+	    		{
+	    			$match: 
+						{
+							$expr:
+								{
+									$and:
+										[
+											{ $lte: [ "$$edad", 18 ] },
+											{ $eq: [ "$$paciente", "$idPaciente" ] }
+										]
+								}
+						}
+	    		}
+		    	],
+		    	as: "Paciente"
+		    }
+		},
+		{
+			$unwind: "$Paciente"
+		},
+		{
+			$count: "Pediatrico"
+		}
+	]
+)
+
+db.LogActividades.find({
+	
+})
