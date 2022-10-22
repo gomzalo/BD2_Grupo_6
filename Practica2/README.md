@@ -42,4 +42,4 @@ Seguir el orden de carga de los archivos, según el día.
 
 - [MySQL](<MySQL/>)
 - [MongoDB](<MongoDB/>)
-- [Análisis](<Analisis.md>)
+- [Análisis](<https://docs.google.com/document/d/e/2PACX-1vTkr1A3hSWIG1LyWPp9H488FKKUnB63-IBHe6LQ19xwgF0HIn3P2eOpdPmTqeyzRBN1WuThZ5cebB_n/pub>)
