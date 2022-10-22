@@ -48,3 +48,5 @@ ORDER BY total ASC
 limit 5;
 
 -- 8. Día con más pacientes en la clínica
+SELECT timestampx, COUNT(idPaciente) AS NO_PACIENTE FROM log_actividad
+GROUP BY timestampx ORDER BY NO_PACIENTE DESC LIMIT 1;
