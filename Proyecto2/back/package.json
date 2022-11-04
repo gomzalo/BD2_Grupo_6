@@ -1,0 +1,20 @@
+{
+  "name": "back-proyecto2",
+  "version": "1.0.0",
+  "description": "API that contains the endpoints for the DB endpoints",
+  "main": "src/index.js",
+  "author": "Bases 2 - Grupo G6",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
