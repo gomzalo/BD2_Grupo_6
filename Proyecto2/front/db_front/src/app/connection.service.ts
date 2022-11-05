@@ -12,9 +12,9 @@ export class ConnectionService {
 
   url = environment.url;
 
-  getConsulta(consulta): Observable<any> {
+  getConsulta(db,opcion ): Observable<any> {
     
-    return this.http.post(this.url+"/login", consulta);
+    return this.http.get(this.url+"/"+opcion);
   }
 
 

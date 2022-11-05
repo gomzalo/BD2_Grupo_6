@@ -23,7 +23,7 @@ app.use(function(req, res, next) {
 })
 
 mysql.getConnection(function(err) {
-    if (err) throw err;
+    //if (err) throw err;
     console.log("Connected to MySQL local DB!");
 })
 
@@ -41,7 +41,6 @@ app.get("/1a", (req, res) => {
         const cantidad = collection.find({ Edad: { $lte: 18 } });
         console.log()
         res.send({
-            status: 'ok',
             pacientes: cantidad.bufferedCount()
         });
     });
@@ -57,7 +56,6 @@ app.get('/1b', (req, res) => {
         const cantidad = collection.find({ Edad: { $gt: 18, $lte: 60 } });
         console.log()
         res.send({
-            status: 'ok',
             pacientes: cantidad.bufferedCount()
         });
     });
@@ -73,7 +71,6 @@ app.get('/1c', (req, res) => {
         const cantidad = collection.find({ Edad: { $gte: 60 } });
         console.log()
         res.send({
-            status: 'ok',
             pacientes: cantidad.bufferedCount()
         });
     });

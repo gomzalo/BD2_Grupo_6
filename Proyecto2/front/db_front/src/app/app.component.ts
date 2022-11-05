@@ -20,9 +20,9 @@ export class AppComponent {
 
   title = 'db_front';
   foods: Food[] = [
-    {value: '1.1', viewValue: 'Total de pacientes que llegan a la clínica menores de 18 años'},
-    {value: '1.2', viewValue: 'Total de pacientes que llegan a la clínica entre 18 y 60 años'},
-    {value: '1.3', viewValue: 'Total de pacientes que llegan a la clínica mayores a 60 años'},
+    {value: '1a', viewValue: 'Total de pacientes que llegan a la clínica menores de 18 años'},
+    {value: '1b', viewValue: 'Total de pacientes que llegan a la clínica entre 18 y 60 años'},
+    {value: '1c', viewValue: 'Total de pacientes que llegan a la clínica mayores a 60 años'},
     {value: '2', viewValue: 'Cantidad de pacientes que pasan por cada habitación'},
     {value: '3', viewValue: 'Cantidad de pacientes que llegan a la clínica, agrupados por género'},
     {value: '4', viewValue: 'Top 5 edades más atendidas en la clínica'},
@@ -44,9 +44,10 @@ export class AppComponent {
   consulta(){
     const consulta = {db: this.dbSelected, consulta: this.consultaSelected};
     console.log(consulta);
-    /*this.conection.getConsulta(consulta).subscribe((res: any) => {
+    this.conection.getConsulta(this.dbSelected,this.consultaSelected).subscribe((res: any) => {
       console.log(res);
-      resultado = res;
-    });*/
+      
+      this.resultado = res.pacientes.toString();
+    });
   }
 }
