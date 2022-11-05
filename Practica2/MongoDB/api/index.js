@@ -21,7 +21,7 @@ app.get("/1a", (req, res) => {
         const collection = database.collection("log_actividades");
         collection.aggregate([
         {
-            $lookup: {
+        $lookup: {
                 from: 'pacientes',
                 localField: 'idPaciente',
                 foreignField: 'idPaciente',
